@@ -1,0 +1,1005 @@
+[
+    {
+        "id": "93572a9c83e7ad1b",
+        "type": "tab",
+        "label": "Basic",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e07bf159b6147f4a",
+        "type": "tab",
+        "label": "Postgress Show Data",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "010e84cda878a155",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a0207de35fd24b6d",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "506cc9ad47525aac",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "5f04c3706f7a4c9c",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "a0207de35fd24b6d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e3ffd5e15083fcd3",
+        "type": "postgreSQLConfig",
+        "name": "pgServer",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "nafsi",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "max": "10",
+        "maxFieldType": "num",
+        "min": "1",
+        "minFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "nafsi",
+        "userFieldType": "str",
+        "password": "58513nafsi",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "82d39454734cce56",
+        "type": "mqtt in",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "topic": "topic/heat",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "010e84cda878a155",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 280,
+        "wires": [
+            [
+                "bd6020976c300b6e"
+            ]
+        ]
+    },
+    {
+        "id": "bd6020976c300b6e",
+        "type": "json",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "aa1aabbe81730177",
+                "08f9e345bad92953"
+            ]
+        ]
+    },
+    {
+        "id": "aa1aabbe81730177",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "HeatInsert",
+        "query": "INSERT INTO heat (temperature, timestamp) VALUES ({{{msg.payload.temperature}}},'{{{msg.payload.time}}}');\n",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 490,
+        "y": 280,
+        "wires": [
+            [
+                "2ca2d24d4414c626"
+            ]
+        ]
+    },
+    {
+        "id": "2ca2d24d4414c626",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "HeatShow",
+        "query": "SELECT * FROM heat;",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 670,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8fd5e4bbc7afea3d",
+        "type": "mqtt in",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "topic": "topic/window",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "010e84cda878a155",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 540,
+        "wires": [
+            [
+                "e09a10dfb2627b40"
+            ]
+        ]
+    },
+    {
+        "id": "e09a10dfb2627b40",
+        "type": "json",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "29c3e8dfaf22f24d",
+                "5d3aa3b4baece032"
+            ]
+        ]
+    },
+    {
+        "id": "29c3e8dfaf22f24d",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "WindowStateInsert",
+        "query": "insert into windows (time, isopen, room)\nvalues ('{{{msg.payload.time}}}', {{{msg.payload.isopen}}}, '{{{msg.payload.room}}}')",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 490,
+        "y": 540,
+        "wires": [
+            [
+                "d47cf527168a14d4"
+            ]
+        ]
+    },
+    {
+        "id": "d47cf527168a14d4",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "WindowShow",
+        "query": "SELECT * FROM windows;",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 740,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d3aa3b4baece032",
+        "type": "switch",
+        "z": "93572a9c83e7ad1b",
+        "name": "check if window is open",
+        "property": "payload.isopen",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 460,
+        "y": 660,
+        "wires": [
+            [
+                "12f8ee922032831f"
+            ]
+        ]
+    },
+    {
+        "id": "10a3ca46af39fb41",
+        "type": "mqtt in",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "topic": "topic/alarm",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "010e84cda878a155",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 80,
+        "y": 900,
+        "wires": [
+            [
+                "5f758b8c3cc3fbbb"
+            ]
+        ]
+    },
+    {
+        "id": "5f758b8c3cc3fbbb",
+        "type": "json",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 900,
+        "wires": [
+            [
+                "95e35240147a2130",
+                "2cf41f546b09cf73"
+            ]
+        ]
+    },
+    {
+        "id": "95e35240147a2130",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "AlarmInsert",
+        "query": "INSERT INTO alarm (time, isopen) VALUES (\n'{{{msg.payload.time}}}' \n,{{{msg.payload.isopen}}});\n",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 450,
+        "y": 980,
+        "wires": [
+            [
+                "24ef179231d2eb88"
+            ]
+        ]
+    },
+    {
+        "id": "24ef179231d2eb88",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "AlarmShow",
+        "query": "SELECT * FROM alarm;",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 650,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2cf41f546b09cf73",
+        "type": "switch",
+        "z": "93572a9c83e7ad1b",
+        "name": "check if alarm is open",
+        "property": "payload.isopen",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 860,
+        "wires": [
+            [
+                "36569431d8f14511"
+            ]
+        ]
+    },
+    {
+        "id": "1e4bf634a5bd7077",
+        "type": "debug",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "1ce79201f51991c6",
+        "type": "join",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 890,
+        "y": 680,
+        "wires": [
+            [
+                "f411922cddf6f512"
+            ]
+        ]
+    },
+    {
+        "id": "12f8ee922032831f",
+        "type": "function",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "func": "msg.topic = 'window'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 680,
+        "wires": [
+            [
+                "1ce79201f51991c6"
+            ]
+        ]
+    },
+    {
+        "id": "36569431d8f14511",
+        "type": "function",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "func": "msg.topic = 'alarm'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 800,
+        "wires": [
+            [
+                "1ce79201f51991c6"
+            ]
+        ]
+    },
+    {
+        "id": "08f9e345bad92953",
+        "type": "switch",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "property": "payload.temperature",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "40",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 400,
+        "y": 380,
+        "wires": [
+            [
+                "910abc74a4630516"
+            ],
+            [
+                "8be0f5ef0258c350"
+            ]
+        ]
+    },
+    {
+        "id": "95d83c1d4dca4a77",
+        "type": "debug",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8be0f5ef0258c350",
+        "type": "function",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "func": "msg.payload = \"Temperature has increased 40 °C! Too warm! \"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 440,
+        "wires": [
+            [
+                "95d83c1d4dca4a77"
+            ]
+        ]
+    },
+    {
+        "id": "910abc74a4630516",
+        "type": "function",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "func": "msg.payload = \"Temperature is less than 5 °C! Too cold! \"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 340,
+        "wires": [
+            [
+                "95d83c1d4dca4a77"
+            ]
+        ]
+    },
+    {
+        "id": "f411922cddf6f512",
+        "type": "function",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "func": "\n\nvar mes1 = \"Window detected open while alarm is ON in room: \"\n\nmsg= { payload: msg.payload.window.room };\n\nvar result = {};\n\nresult.payload = mes1.concat(JSON.stringify(msg.payload))\n\nreturn result;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 680,
+        "wires": [
+            [
+                "1e4bf634a5bd7077"
+            ]
+        ]
+    },
+    {
+        "id": "2f53050e8e558bd7",
+        "type": "mqtt in",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "topic": "topic/smoke",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "010e84cda878a155",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1120,
+        "wires": [
+            [
+                "847bf2534ab7da26"
+            ]
+        ]
+    },
+    {
+        "id": "847bf2534ab7da26",
+        "type": "json",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 1120,
+        "wires": [
+            [
+                "e1d1459345dbb07d",
+                "1df2dd3517fca0f4"
+            ]
+        ]
+    },
+    {
+        "id": "e1d1459345dbb07d",
+        "type": "switch",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "property": "payload.isdetected",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 1220,
+        "wires": [
+            [
+                "0a018dac405c389b"
+            ]
+        ]
+    },
+    {
+        "id": "89b0bb724f8f88fd",
+        "type": "debug",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "0a018dac405c389b",
+        "type": "function",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "func": "var mes1 = \"SOS Smoke Detected in room:\"\n\nvar newMsg = { payload: msg.payload.room };\n\nvar result = {};\n\nresult.payload = mes1.concat(JSON.stringify(newMsg.payload))\n\nreturn result;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1220,
+        "wires": [
+            [
+                "89b0bb724f8f88fd"
+            ]
+        ]
+    },
+    {
+        "id": "1df2dd3517fca0f4",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "SmokeInsert",
+        "query": "INSERT INTO smoke (time, isdetected,room)\nVALUES ('{{{msg.payload.time}}}',\n{{{msg.payload.isdetected}}},'{{{msg.payload.room}}}' );\n",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 510,
+        "y": 1120,
+        "wires": [
+            [
+                "530ff5fba6363788"
+            ]
+        ]
+    },
+    {
+        "id": "530ff5fba6363788",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "SmokeShow",
+        "query": "SELECT * FROM smoke;",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 690,
+        "y": 1120,
+        "wires": [
+            [
+                "6438feb16f1eeefc"
+            ]
+        ]
+    },
+    {
+        "id": "2017bb63e293b4b8",
+        "type": "mqtt in",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "topic": "topic/CO",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "010e84cda878a155",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 1380,
+        "wires": [
+            [
+                "2ade6d8fe4a658ce"
+            ]
+        ]
+    },
+    {
+        "id": "2ade6d8fe4a658ce",
+        "type": "json",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 1380,
+        "wires": [
+            [
+                "8c60d8c5b0a6c3d5",
+                "33992af089fc0722"
+            ]
+        ]
+    },
+    {
+        "id": "8c60d8c5b0a6c3d5",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "COInsert",
+        "query": "INSERT INTO CO (time, value, room) VALUES ('{{{msg.payload.time}}}',\n{{{msg.payload.value}}},\n'{{{msg.payload.room}}}'\n);\n",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 500,
+        "y": 1380,
+        "wires": [
+            [
+                "42c1102aeb8894db"
+            ]
+        ]
+    },
+    {
+        "id": "42c1102aeb8894db",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "COShow",
+        "query": "SELECT * FROM CO;",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 680,
+        "y": 1380,
+        "wires": [
+            [
+                "d8a5adf3c208f333"
+            ]
+        ]
+    },
+    {
+        "id": "d8a5adf3c208f333",
+        "type": "debug",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "33992af089fc0722",
+        "type": "switch",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "property": "payload.value",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 420,
+        "y": 1460,
+        "wires": [
+            [
+                "e114d41175ae375f"
+            ]
+        ]
+    },
+    {
+        "id": "e114d41175ae375f",
+        "type": "function",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "func": "var mes1 = \"SOS high CO concentration detected in room:\"\n\nvar newMsg = { payload: msg.payload.room };\n\nvar result = {};\n\nresult.payload = mes1.concat(JSON.stringify(newMsg.payload))\n\nreturn result;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1460,
+        "wires": [
+            [
+                "6c249acb3a7f6fd3"
+            ]
+        ]
+    },
+    {
+        "id": "6c249acb3a7f6fd3",
+        "type": "debug",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "6438feb16f1eeefc",
+        "type": "debug",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "5db91d3de2f7291e",
+        "type": "inject",
+        "z": "e07bf159b6147f4a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "cac79b92c0a74603"
+            ]
+        ]
+    },
+    {
+        "id": "cac79b92c0a74603",
+        "type": "postgresql",
+        "z": "e07bf159b6147f4a",
+        "name": "",
+        "query": "INSERT INTO timedata(id,data_time)\nVALUES(37,'2021-08-08 19:10:10');\n\nSELECT * from timedata;",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "d2d025e7485752cb"
+            ]
+        ]
+    },
+    {
+        "id": "d2d025e7485752cb",
+        "type": "debug",
+        "z": "e07bf159b6147f4a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 180,
+        "wires": []
+    }
+]
