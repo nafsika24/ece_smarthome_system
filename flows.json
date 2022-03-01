@@ -24,7 +24,7 @@
         "env": []
     },
     {
-        "id": "32699f24cc2cac51",
+        "id": "1feb7a8dcb9365da",
         "type": "tab",
         "label": "Heat",
         "disabled": false,
@@ -470,7 +470,8 @@
         "wires": [
             [
                 "1ce79201f51991c6",
-                "3a52c235cb07cbec"
+                "3a52c235cb07cbec",
+                "a2a8837ecd8568b4"
             ]
         ]
     },
@@ -541,8 +542,8 @@
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 470,
-        "y": 880,
+        "x": 510,
+        "y": 800,
         "wires": [
             [
                 "ad504af423281a7a"
@@ -559,8 +560,8 @@
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 730,
-        "y": 880,
+        "x": 770,
+        "y": 800,
         "wires": [
             [
                 "9c2e8a05e38a9594"
@@ -579,8 +580,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 880,
+        "x": 950,
+        "y": 800,
         "wires": []
     },
     {
@@ -763,6 +764,200 @@
         "channel": "",
         "x": 1330,
         "y": 560,
+        "wires": []
+    },
+    {
+        "id": "960520f4795f322b",
+        "type": "mqtt in",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "topic": "topic/motion",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "010e84cda878a155",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 920,
+        "wires": [
+            [
+                "b068505f461e4dd2"
+            ]
+        ]
+    },
+    {
+        "id": "b068505f461e4dd2",
+        "type": "json",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 920,
+        "wires": [
+            [
+                "40bbb5a7a247fe18",
+                "0b89e9dcfe284750"
+            ]
+        ]
+    },
+    {
+        "id": "40bbb5a7a247fe18",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "MotionStateInsert",
+        "query": "insert into motion (time, state, room)\nvalues ('{{{msg.payload.time}}}', {{{msg.payload.state}}}, '{{{msg.payload.room}}}')",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 490,
+        "y": 920,
+        "wires": [
+            [
+                "8501bed6bfac4757"
+            ]
+        ]
+    },
+    {
+        "id": "8501bed6bfac4757",
+        "type": "postgresql",
+        "z": "93572a9c83e7ad1b",
+        "name": "MotionShow",
+        "query": "SELECT * FROM motion;",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 730,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b89e9dcfe284750",
+        "type": "switch",
+        "z": "93572a9c83e7ad1b",
+        "name": "check if motion is detected",
+        "property": "payload.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 1040,
+        "wires": [
+            [
+                "799e3138ee0cead9"
+            ]
+        ]
+    },
+    {
+        "id": "799e3138ee0cead9",
+        "type": "function",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "func": "msg.topic = 'motion'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1060,
+        "wires": [
+            [
+                "a2a8837ecd8568b4"
+            ]
+        ]
+    },
+    {
+        "id": "a2a8837ecd8568b4",
+        "type": "join",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 940,
+        "y": 980,
+        "wires": [
+            [
+                "aee71c45fe8afccc"
+            ]
+        ]
+    },
+    {
+        "id": "fa21aad8f65d0d35",
+        "type": "debug",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1310,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "aee71c45fe8afccc",
+        "type": "function",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "func": "\n\nvar mes1 = \"Motion detected open while alarm is ON in room: \"\n\nmsg= { payload: msg.payload.motion.room };\n\nvar result = {};\n\nresult.payload = mes1.concat(JSON.stringify(msg.payload))\n\nreturn result;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 980,
+        "wires": [
+            [
+                "fa21aad8f65d0d35",
+                "bead5b539a8586b0"
+            ]
+        ]
+    },
+    {
+        "id": "bead5b539a8586b0",
+        "type": "slack",
+        "z": "93572a9c83e7ad1b",
+        "name": "",
+        "channelURL": "https://hooks.slack.com/services/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",
+        "username": "SmartHome - Door",
+        "emojiIcon": " ",
+        "channel": "",
+        "x": 1230,
+        "y": 1060,
         "wires": []
     },
     {
@@ -1756,9 +1951,9 @@
         "wires": []
     },
     {
-        "id": "5323075b29fde862",
+        "id": "5b6defc9693b1f15",
         "type": "mqtt in",
-        "z": "32699f24cc2cac51",
+        "z": "1feb7a8dcb9365da",
         "name": "",
         "topic": "topic/heat",
         "qos": "2",
@@ -1772,14 +1967,14 @@
         "y": 100,
         "wires": [
             [
-                "c48d4965af74ed28"
+                "f4a9130bf78665f2"
             ]
         ]
     },
     {
-        "id": "c48d4965af74ed28",
+        "id": "f4a9130bf78665f2",
         "type": "json",
-        "z": "32699f24cc2cac51",
+        "z": "1feb7a8dcb9365da",
         "name": "",
         "property": "payload",
         "action": "",
@@ -1788,17 +1983,17 @@
         "y": 100,
         "wires": [
             [
-                "a329333807e41008",
-                "fb172995935914c7"
+                "601d641ae0964552",
+                "f32743ded59f634e"
             ]
         ]
     },
     {
-        "id": "a329333807e41008",
+        "id": "601d641ae0964552",
         "type": "postgresql",
-        "z": "32699f24cc2cac51",
+        "z": "1feb7a8dcb9365da",
         "name": "HeatInsert",
-        "query": "INSERT INTO heat (temperature, timestamp) VALUES ({{{msg.payload.temperature}}},'{{{msg.payload.time}}}');\n",
+        "query": "INSERT INTO heat (temperature, time) VALUES ({{{msg.payload.temperature}}},'{{{msg.payload.time}}}');\n",
         "postgreSQLConfig": "e3ffd5e15083fcd3",
         "split": false,
         "rowsPerMsg": 1,
@@ -1807,14 +2002,14 @@
         "y": 100,
         "wires": [
             [
-                "8018fc5296571960"
+                "c18999fd955f3f8f"
             ]
         ]
     },
     {
-        "id": "8018fc5296571960",
+        "id": "c18999fd955f3f8f",
         "type": "postgresql",
-        "z": "32699f24cc2cac51",
+        "z": "1feb7a8dcb9365da",
         "name": "HeatShow",
         "query": "SELECT * FROM heat;",
         "postgreSQLConfig": "e3ffd5e15083fcd3",
@@ -1828,9 +2023,9 @@
         ]
     },
     {
-        "id": "fb172995935914c7",
+        "id": "f32743ded59f634e",
         "type": "switch",
-        "z": "32699f24cc2cac51",
+        "z": "1feb7a8dcb9365da",
         "name": "",
         "property": "payload.temperature",
         "propertyType": "msg",
@@ -1853,17 +2048,17 @@
         "y": 200,
         "wires": [
             [
-                "2cb4acdfece0a627"
+                "280432fd9d9ec044"
             ],
             [
-                "985d3b3a821068af"
+                "984bcdfb0fa7961c"
             ]
         ]
     },
     {
-        "id": "b1dcc18a7fbb054b",
+        "id": "ba79f4fc8b298492",
         "type": "debug",
-        "z": "32699f24cc2cac51",
+        "z": "1feb7a8dcb9365da",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1878,9 +2073,9 @@
         "wires": []
     },
     {
-        "id": "985d3b3a821068af",
+        "id": "984bcdfb0fa7961c",
         "type": "function",
-        "z": "32699f24cc2cac51",
+        "z": "1feb7a8dcb9365da",
         "name": "",
         "func": "msg.payload = \"Temperature has increased 40 °C! Too warm! \"\n\nreturn msg;",
         "outputs": 1,
@@ -1892,15 +2087,15 @@
         "y": 260,
         "wires": [
             [
-                "b1dcc18a7fbb054b",
-                "1321e8fb6cb39402"
+                "ba79f4fc8b298492",
+                "38d2a08c5a466c7e"
             ]
         ]
     },
     {
-        "id": "2cb4acdfece0a627",
+        "id": "280432fd9d9ec044",
         "type": "function",
-        "z": "32699f24cc2cac51",
+        "z": "1feb7a8dcb9365da",
         "name": "",
         "func": "msg.payload = \"Temperature is less than 5 °C! Too cold! \"\n\nreturn msg;",
         "outputs": 1,
@@ -1912,15 +2107,15 @@
         "y": 160,
         "wires": [
             [
-                "b1dcc18a7fbb054b",
-                "1321e8fb6cb39402"
+                "ba79f4fc8b298492",
+                "38d2a08c5a466c7e"
             ]
         ]
     },
     {
-        "id": "1321e8fb6cb39402",
+        "id": "38d2a08c5a466c7e",
         "type": "slack",
-        "z": "32699f24cc2cac51",
+        "z": "1feb7a8dcb9365da",
         "name": "",
         "channelURL": "https://hooks.slack.com/services/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",
         "username": "SmartHome - Smoke",
