@@ -32,6 +32,22 @@
         "env": []
     },
     {
+        "id": "80e237835e31d8fa",
+        "type": "tab",
+        "label": "Lights",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9d7704be57c4957b",
+        "type": "tab",
+        "label": "Central Door Lock",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "010e84cda878a155",
         "type": "mqtt-broker",
         "name": "",
@@ -953,7 +969,7 @@
         "z": "93572a9c83e7ad1b",
         "name": "",
         "channelURL": "https://hooks.slack.com/services/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",
-        "username": "SmartHome - Door",
+        "username": "SmartHome - Motion",
         "emojiIcon": " ",
         "channel": "",
         "x": 1230,
@@ -2118,11 +2134,413 @@
         "z": "1feb7a8dcb9365da",
         "name": "",
         "channelURL": "https://hooks.slack.com/services/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",
-        "username": "SmartHome - Smoke",
+        "username": "SmartHome - Heat",
         "emojiIcon": "",
         "channel": "",
         "x": 810,
         "y": 260,
+        "wires": []
+    },
+    {
+        "id": "53553bf278aa0af9",
+        "type": "mqtt in",
+        "z": "80e237835e31d8fa",
+        "name": "",
+        "topic": "topic/lights",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "010e84cda878a155",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "995795556d99a676"
+            ]
+        ]
+    },
+    {
+        "id": "995795556d99a676",
+        "type": "json",
+        "z": "80e237835e31d8fa",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "b20e1803d77e45ac"
+            ]
+        ]
+    },
+    {
+        "id": "b20e1803d77e45ac",
+        "type": "postgresql",
+        "z": "80e237835e31d8fa",
+        "name": "Lightnsert",
+        "query": "INSERT INTO lights (room, time, state) VALUES ('{{{msg.payload.room}}}','{{{msg.payload.time}}}',\n{{{msg.payload.state}}});\n",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 500,
+        "y": 120,
+        "wires": [
+            [
+                "53bfbfb1b6016689"
+            ]
+        ]
+    },
+    {
+        "id": "53bfbfb1b6016689",
+        "type": "postgresql",
+        "z": "80e237835e31d8fa",
+        "name": "LIghtsShow",
+        "query": "SELECT * FROM lights;",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 690,
+        "y": 120,
+        "wires": [
+            [
+                "64dda6acdf580dad"
+            ]
+        ]
+    },
+    {
+        "id": "64dda6acdf580dad",
+        "type": "debug",
+        "z": "80e237835e31d8fa",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e5d5a5d6acda0613",
+        "type": "mqtt in",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "topic": "topic/lock",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "010e84cda878a155",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "d157afbbe459923e"
+            ]
+        ]
+    },
+    {
+        "id": "d157afbbe459923e",
+        "type": "json",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "458422f67e11858c",
+                "43218188dafe2a4f"
+            ]
+        ]
+    },
+    {
+        "id": "458422f67e11858c",
+        "type": "postgresql",
+        "z": "9d7704be57c4957b",
+        "name": "LockStateInsert",
+        "query": "insert into central_door_lock (time, state)\nvalues ('{{{msg.payload.time}}}', {{{msg.payload.state}}})",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 520,
+        "y": 140,
+        "wires": [
+            [
+                "c66ba9fe20c713e7"
+            ]
+        ]
+    },
+    {
+        "id": "c66ba9fe20c713e7",
+        "type": "postgresql",
+        "z": "9d7704be57c4957b",
+        "name": "LockShow",
+        "query": "SELECT * FROM central_door_lock;",
+        "postgreSQLConfig": "e3ffd5e15083fcd3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 770,
+        "y": 140,
+        "wires": [
+            [
+                "ecd85c1068d6a144"
+            ]
+        ]
+    },
+    {
+        "id": "43218188dafe2a4f",
+        "type": "switch",
+        "z": "9d7704be57c4957b",
+        "name": "check if central door is locked",
+        "property": "payload.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 260,
+        "wires": [
+            [
+                "62779206c088cc5b"
+            ]
+        ]
+    },
+    {
+        "id": "5843e3cb950d7ac2",
+        "type": "mqtt in",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "topic": "topic/alarm",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "010e84cda878a155",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "11274c270aaf96c4"
+            ]
+        ]
+    },
+    {
+        "id": "11274c270aaf96c4",
+        "type": "json",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "cca33d86fbebd92d"
+            ]
+        ]
+    },
+    {
+        "id": "cca33d86fbebd92d",
+        "type": "switch",
+        "z": "9d7704be57c4957b",
+        "name": "check if alarm is open",
+        "property": "payload.isopen",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 500,
+        "wires": [
+            [
+                "c8f8861b4446dfcc"
+            ]
+        ]
+    },
+    {
+        "id": "1a298969ff0954fd",
+        "type": "debug",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a87258708edfaee5",
+        "type": "join",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 930,
+        "y": 280,
+        "wires": [
+            [
+                "47932923b1a18362"
+            ]
+        ]
+    },
+    {
+        "id": "62779206c088cc5b",
+        "type": "function",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "func": "msg.topic = 'lock'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 280,
+        "wires": [
+            [
+                "a87258708edfaee5"
+            ]
+        ]
+    },
+    {
+        "id": "c8f8861b4446dfcc",
+        "type": "function",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "func": "msg.topic = 'alarm'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "a87258708edfaee5"
+            ]
+        ]
+    },
+    {
+        "id": "47932923b1a18362",
+        "type": "function",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "func": "var mes1 = {};\nmes1.payload = \"Central Door detected unlocked while alarm is ON!\";\nreturn mes1;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 280,
+        "wires": [
+            [
+                "1a298969ff0954fd",
+                "ff3a9155dcc2fac1"
+            ]
+        ]
+    },
+    {
+        "id": "bda1d1d1db2d1a8c",
+        "type": "comment",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "info": "Check if any window is open while alarm is ON.",
+        "x": 930,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b60ab6f5e9cd09ee",
+        "type": "comment",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "info": "Check if any balcony or central or garage door is open while alarm is ON.",
+        "x": 1020,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "ecd85c1068d6a144",
+        "type": "debug",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ff3a9155dcc2fac1",
+        "type": "slack",
+        "z": "9d7704be57c4957b",
+        "name": "",
+        "channelURL": "https://hooks.slack.com/services/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",
+        "username": "SmartHome - Central Door",
+        "emojiIcon": " ",
+        "channel": "",
+        "x": 1250,
+        "y": 360,
         "wires": []
     }
 ]
