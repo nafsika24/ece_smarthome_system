@@ -1,0 +1,57 @@
+
+=========== ALARM =============
+
+mosquitto_pub -t topic/window -m '{"time": "2021-03-03 17:00:00", "room":"bathroom", "isopen": 1}'
+
+mosquitto_pub -t topic/alarm -m '{"time": "2021-03-03 17:00:00", "isopen": 1}'
+
+mosquitto_pub -t topic/door -m '{"time": "2021-03-03 18:00:00", "state": 1, "room":"garage"}'
+
+mosquitto_pub -t topic/present -m '{"time": "2021-03-03 18:00:00", "state": 1,"room":"bedroom"}'
+
+============== GASES ============
+
+mosquitto_pub -t topic/fire -m '{"time": "2021-03-03 18:00:00", "value": 1, "room":"bathroom", "gas_type": "fire"}'
+
+mosquitto_pub -t topic/CO -m '{"time": "2021-03-03 18:00:00", "value": 2, "room":"bathroom", "gas_type": "CO"}'
+
+mosquitto_pub -t topic/CO2 -m '{"time": "2021-03-03 18:00:00", "value": 400, "room":"bathroom", "gas_type": "CO2"}'
+
+========= Heating =================
+
+mosquitto_pub -t topic/temperature -m '{"time": "2022-03-03 17:00:00", "temperature":14,"room":"bathroom"}'
+
+=========== Lights ===============
+
+mosquitto_pub -t topic/lights -m '{"time": "2022-03-02 15:00:00", "state": 0, "room":"bedroom2"}'
+
+
+======== Devices ==============
+
+mosquitto_pub -t topic/doorbell -m '{"time": "2022-03-01 15:00:00", "state": 1}'
+
+mosquitto_pub -t topic/fridgedoor -m '{"time": "2021-03-03 19:10:00", "state": 1}'
+
+mosquitto_pub -t topic/faucet -m '{"time": "2021-06-04 17:00:00", "state":1, "device":"faucet"}'
+
+mosquitto_pub -t topic/oven -m '{"time": "2021-06-04 17:00:00", "state":1, "device":"oven"}'
+
+
+
+========= Energy ==========
+
+mosquitto_pub -t topic/boiler -m '{"time": "2021-06-04 17:00:00", "temperature":44,"capacity": 200, "energy_type":"boiler"}'
+
+mosquitto_pub -t topic/power -m '{"time": "2021-06-04 17:00:00", "temperature":44,"capacity": 200, "energy_type":"power"}'
+
+
+
+
+
+
+
+
+
+
+
+
