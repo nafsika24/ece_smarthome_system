@@ -11,31 +11,14 @@ import time
 # type : JSON
 # fields : time, room : [bathroom, kitchen, bedroom, balcony, garage, living room], gas_type : fire
 
-def on_connect(client, userdata, flags, rc):
-   if not rc :
-      print("connected ok")
-
 client = mqtt.Client('fire')
 client.connect('localhost')
-client.on_connect = on_connect
-
-now = datetime.now()
-dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
-print(dt_string)
-
-payload = {
-    "time" : dt_string,
-    "room" : "bathroom",
-    "gas_type" : "fire"
-}
 
 rooms = ["bathroom", "kitchen", "bedroom", "balcony", "garage", "living room"]
 
-print(str(json.dumps(payload, indent = 4)))
-
 while 1 :
     now = datetime.now()
-    if not int(now.strftime("%M")) % 5 :
+    if not int(now.strftime("%M")) %  :
         dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
         for room in rooms :
             current_payload = {
