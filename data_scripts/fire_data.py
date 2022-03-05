@@ -39,7 +39,7 @@ while 1 :
         print("Cool")
         time.sleep(60)
 
-    if counter >= 6 :
+    if counter >= 30 :
         break
 
 
