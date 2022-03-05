@@ -16,9 +16,12 @@ client.connect('localhost')
 
 rooms = ["bathroom", "kitchen", "bedroom", "balcony", "garage", "living room"]
 
+counter = 0
+
 while 1 :
+    counter += 1
     now = datetime.now()
-    if not int(now.strftime("%M")) %  :
+    if not int(now.strftime("%M")) % 5 :
         dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
         for room in rooms :
             current_payload = {
@@ -35,6 +38,10 @@ while 1 :
     else :
         print("Cool")
         time.sleep(60)
+
+    if counter >= 6 :
+        break
+
 
 
 
