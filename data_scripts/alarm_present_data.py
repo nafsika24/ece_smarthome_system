@@ -35,7 +35,7 @@ while 1 :
                 "state" : rd.randint(0,1),
                 "room" : room,
             }
-            client.publish("topic/state", str(json.dumps(current_payload, indent = 4)))
+            client.publish("topic/present", str(json.dumps(current_payload, indent = 4)))
             print(str(json.dumps(current_payload, indent = 4)))
         time.sleep(60)
         continue
