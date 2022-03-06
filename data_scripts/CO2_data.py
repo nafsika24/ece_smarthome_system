@@ -13,7 +13,7 @@ import time
 
 
 client = mqtt.Client('CO2')
-client.connect('localhost')
+client.connect('localhost', keepalive=600)
 
 now = datetime.now()
 dt_string = now.strftime("%Y-%m-%d %H:%M:%S")

@@ -12,7 +12,7 @@ import time
 # fields : time, room : [bathroom, kitchen, bedroom, balcony, garage, living room], gas_type : fire
 
 client = mqtt.Client('fire')
-client.connect('localhost')
+client.connect('localhost', keepalive=600)
 
 rooms = ["bathroom", "kitchen", "bedroom", "balcony", "garage", "living room"]
 

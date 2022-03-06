@@ -5,7 +5,7 @@ import random as rd
 import time
 
 client = mqtt.Client('power')
-client.connect('localhost')
+client.connect('localhost', keepalive=600)
 
 now = datetime.now()
 dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
