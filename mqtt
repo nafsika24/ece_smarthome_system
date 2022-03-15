@@ -19,7 +19,7 @@ mosquitto_pub -t topic/CO2 -m '{"time": "2021-03-03 18:00:00", "value": 400, "ro
 
 ========= Heating =================
 
-mosquitto_pub -t topic/temperature -m '{"time": "2022-03-03 17:00:00", "temperature":14,"room":"bathroom"}'
+mosquitto_pub -t topic/thermostat -m '{"time": "2022-03-03 17:00:00", "temperature":14,"state":"1"}'
 
 =========== Lights ===============
 
@@ -36,7 +36,11 @@ mosquitto_pub -t topic/faucet -m '{"time": "2021-06-04 17:00:00", "state":1, "de
 
 mosquitto_pub -t topic/oven -m '{"time": "2021-06-04 17:00:00", "state":1, "device":"oven"}'
 
+mosquitto_pub -t topic/tv -m '{"time": "2021-06-04 17:00:00", "state":1, "device":"tv"}'
 
+mosquitto_pub -t topic/radio -m '{"time": "2021-06-04 17:00:00", "state":1, "device":"radio"}'
+
+mosquitto_pub -t topic/coffee_maker -m '{"time": "2021-06-04 17:00:00", "state":1, "device":"coffee_maker"}'
 
 ========= Energy ==========
 

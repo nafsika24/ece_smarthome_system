@@ -20,7 +20,7 @@ while 1 :
         dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
         current_payload = {
             "time" : dt_string,
-            "temperature" : rd.randint(50,150),
+            "temperature" : rd.randint(50,120),
             "energy_type" : "boiler",
             "capacity" : rd.randint(0,80)
         }

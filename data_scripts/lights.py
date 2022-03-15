@@ -9,7 +9,7 @@ import time
 
 # Payload :
 # type : JSON
-# fields : time, room : [bathroom, kitchen, bedroom, living room], state : int
+# fields : time, room : [bathroom, kitchen, bedroom, living room, balcony], state : int
 
 
 
@@ -20,7 +20,7 @@ now = datetime.now()
 dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
 print(dt_string)
 
-rooms = ["bathroom", "kitchen", "bedroom", "living room", "garage"]
+rooms = ["bathroom", "kitchen", "bedroom", "living room", "garage","balcony"]
 
 counter = 0
 

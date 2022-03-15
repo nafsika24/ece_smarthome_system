@@ -22,7 +22,8 @@ while 1 :
             "time" : dt_string,
             "temperature" : rd.randint(50,150),
             "energy_type" : "power",
-            "capacity" : rd.randint(0,80)
+            "capacity" : rd.randint(0,80),
+            "consumption": rd.randint(100,300)
         }
         client.publish("topic/power", str(json.dumps(current_payload, indent = 4)))
         print(str(json.dumps(current_payload, indent = 4)))

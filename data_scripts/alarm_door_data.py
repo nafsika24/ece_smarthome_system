@@ -32,7 +32,7 @@ while 1 :
         for room in rooms :
             current_payload = {
                 "time" : dt_string,
-                "isopen" : rd.randint(0,1),
+                "state" : rd.randint(0,1),
                 "room" : room,
             }
             client.publish("topic/door", str(json.dumps(current_payload, indent = 4)))

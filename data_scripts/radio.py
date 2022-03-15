@@ -4,22 +4,19 @@ import json
 import random as rd
 import time
 
-# Data production for heating event :
-# topic : topic/thermostat
+# Data production for radio event :
+# topic : topic/radio
 
 # Payload :
 # type : JSON
-# fields : time, state : int temperature : int
+# fields : time, state : int, device : str
 
-
-
-client = mqtt.Client('temperature')
+client = mqtt.Client('radio')
 client.connect('localhost', keepalive=600)
 
 now = datetime.now()
 dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
 print(dt_string)
-
 
 counter = 0
 
@@ -27,14 +24,13 @@ while 1 :
     counter += 1
     now = datetime.now()
     if not int(now.strftime("%M")) % 5 :
-
         dt_string = now.strftime("%Y-%m-%d %H:%M:%S")
         current_payload = {
             "time" : dt_string,
-            "temperature" : rd.randint(5,50),
-            "state" : rd.randint(0,1)
+            "state" : rd.randint(0,1),
+            "device" : "radio"
         }
-        client.publish("topic/temperature", str(json.dumps(current_payload, indent = 4)))
+        client.publish("topic/radio", str(json.dumps(current_payload, indent = 4)))
         print(str(json.dumps(current_payload, indent = 4)))
         time.sleep(60)
         continue
