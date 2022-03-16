@@ -1,0 +1,23 @@
+{
+  "name": "smarthome_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon app.js",
+    "server": "npx nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "mqtt": "^4.3.6",
+    "node-datetime": "^2.1.2",
+    "node-fetch": "^3.2.3",
+    "nodemon": "^2.0.15",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
