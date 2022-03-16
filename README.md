@@ -25,11 +25,8 @@ As we do not have real sensors, we will simulate them by using python scripts. I
 ### Build note 
 * To open Node-Red, after installing it, run on your terminal "node-red" and open the link http://127.0.0.1:1880/.
 * To open Grafana , after installing it, run on your terminal "sudo systemctl start grafana-server" and open http://localhost:3000/.
-* 
 * Slack channel for alert messages: https://join.slack.com/t/smarthomeapplication/shared_invite/zt-14gi1xq83-nAKqM6GHoSK8J4joeC5u0Q
-
 * In the file mqtt there are some examples of MQTT Requests you can send. 
-* 
 * To run data scripts, first run on your terminal "pip install paho-mqtt". In order to run all scripts simultaneously, in the terminal, the folder data_scripts:
   1. run chmod +x test_scripts.sh
   2. run ./test_scripts.sh 
