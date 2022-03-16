@@ -34,7 +34,7 @@ while 1 :
             "temperature" : rd.randint(5,50),
             "state" : rd.randint(0,1)
         }
-        client.publish("topic/temperature", str(json.dumps(current_payload, indent = 4)))
+        client.publish("topic/thermostat", str(json.dumps(current_payload, indent = 4)))
         print(str(json.dumps(current_payload, indent = 4)))
         time.sleep(60)
         continue
