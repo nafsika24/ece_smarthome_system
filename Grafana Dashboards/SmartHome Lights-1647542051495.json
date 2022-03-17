@@ -1,0 +1,611 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 3,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "8.3.0-beta2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as bathroom\nfrom lights \nwhere room = 'bathroom' \n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as bedroom\nfrom lights \nwhere room = 'bedroom' \n\n",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as kitchen\nfrom lights \nwhere room = 'kitchen' \n\n\n",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as living_room\nfrom lights \nwhere room = 'living room' \n\n",
+          "refId": "D",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as balcony\nfrom lights \nwhere room = 'balcony' \n\n",
+          "refId": "E",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as garage\nfrom lights \nwhere room = 'garage' \n\n",
+          "refId": "F",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Lights",
+      "type": "timeseries"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "lineWidth": 0
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "8.3.0-beta2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as bathroom\nfrom lights \nwhere room = 'bathroom' \n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as bedroom\nfrom lights \nwhere room = 'bedroom' \n\n",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as kitchen\nfrom lights \nwhere room = 'kitchen' \n\n\n",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as living_room\nfrom lights \nwhere room = 'living room' \n\n",
+          "refId": "D",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as balcony\nfrom lights \nwhere room = 'balcony' \n\n",
+          "refId": "E",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "EMdhpHJ7z"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select time,state as garage\nfrom lights \nwhere room = 'garage' \n\n",
+          "refId": "F",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Lights",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 7,
+      "links": [],
+      "maxDataPoints": 3,
+      "options": {
+        "content": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n.button {\n  background-color: #008CBA;\n  border: none;\n  color: white;\n  padding: 15px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n\n.button2 {\n  background-color: #ff4da6;\n  border: none;\n  color: white;\n  padding: 15px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n</style>\n</head>\n<body>\n\n<center>\n  <h2>Lights</h2>\n  <button class=\"button\" onclick=\"lightson()\"> Turn On Bedroom Light</button>\n  <button class=\"button\" onclick=\"lightsoff()\"> Turn Off Bedroom Light</button>\n</center>\n\n<center>\n  <button class=\"button2\" onclick=\"lightson_bath()\"> Turn On Bathroom Light</button>\n  <button class=\"button2\" onclick=\"lightsoff_bath()\"> Turn Off Bathroom Light</button>\n</center>\n\n\n<script type=\"text/javascript\">\n\n  function lightson() {\n    var url = \"http://localhost:3001/lights_on_bed\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n      }\n\n  function lightsoff() {\n    var url = \"http://localhost:3001/lights_off_bed\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n  }\n\n\n  function lightson_bath() {\n    var url = \"http://localhost:3001/lights_on_bath\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n  }\n\n\n  function lightsoff_bath() {\n    var url = \"http://localhost:3001/lights_off_bath\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n  }\n\n</script>\n\n</body>\n</html>\n",
+        "mode": "html"
+      },
+      "pluginVersion": "8.3.0-beta2",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 9,
+      "links": [],
+      "maxDataPoints": 3,
+      "options": {
+        "content": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n.button3 {\n  background-color: #3d0066;\n  border: none;\n  color: white;\n  padding: 15px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n\n</style>\n</head>\n<body>\n\n<center>\n  <h2>Lights</h2>\n  <button class=\"button3\" onclick=\"lightson_garage()\"> Turn On Garage Light</button>\n  <button class=\"button3\" onclick=\"lightsoff_garage()\"> Turn Off Garage Light</button>\n</center>\n\n\n<script type=\"text/javascript\">\n\n   \n  function lightson_garage() {\n    var url = \"http://localhost:3001/lights_on_garage\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n  }\n\n\n  function lightsoff_garage() {\n    var url = \"http://localhost:3001/lights_off_garage\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n  }\n\n</script>\n\n</body>\n</html>\n",
+        "mode": "html"
+      },
+      "pluginVersion": "8.3.0-beta2",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 6,
+        "y": 16
+      },
+      "id": 8,
+      "links": [],
+      "maxDataPoints": 3,
+      "options": {
+        "content": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n.button3 {\n  background-color: #ff9933;\n  border: none;\n  color: white;\n  padding: 15px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n\n.button4 {\n  background-color: #3333ff;\n  border: none;\n  color: white;\n  padding: 15px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n</style>\n</head>\n<body>\n\n<center>\n  <h2>Lights</h2>\n  <button class=\"button3\" onclick=\"lights_on_kitchen()\"> Turn On Kitchen Light</button>\n  <button class=\"button3\" onclick=\"lights_off_kitchen()\"> Turn Off Kitchen Light</button>\n</center>\n\n<center>\n  <button class=\"button4\" onclick=\"lights_on_liv()\"> Turn On Living Room Light</button>\n  <button class=\"button4\" onclick=\"lights_off_liv()\"> Turn Off Living Room Light</button>\n</center>\n\n\n<script type=\"text/javascript\">\n\n  function lights_on_kitchen() {\n    var url = \"http://localhost:3001/lights_on_kitchen\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n      }\n\n  function lights_off_kitchen() {\n    var url = \"http://localhost:3001/lights_off_kitchen\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n  }\n\n\n  function lights_on_liv() {\n    var url = \"http://localhost:3001/lights_on_liv\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n  }\n\n\n  function lights_off_liv() {\n    var url = \"http://localhost:3001/lights_off_liv\";\n    var data = new FormData();\n    data.append('parameter_1', 'value parameter 1');\n    var xhr = new XMLHttpRequest();\n    xhr.open(\"POST\", url, true);\n    xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n    xhr.send(data);\n  }\n\n</script>\n\n</body>\n</html>\n",
+        "mode": "html"
+      },
+      "pluginVersion": "8.3.0-beta2",
+      "type": "text"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 33,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "SmartHome Lights",
+  "uid": "YqzvnvYnk",
+  "version": 66,
+  "weekStart": ""
+}
