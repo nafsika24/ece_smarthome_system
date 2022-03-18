@@ -23,15 +23,31 @@ For the control of the devices (e.x. lights) you will use Grafana's Dashboard, w
 As we do not have real sensors, we will simulate them by using python scripts. In the folder data_scripts you will find the test_script.sh. By running it all the contained scripts begin simultaneously to send MQTT requests every five minutes, with hypothetical timestamp data from the house's sensors.  
 
 ### Build note 
+### Database
+1. After downloading and setting up PostgreSQL, create a batabase with the tables that are in the file sql_tables.
 ### Node Red
-* To open Node-Red, after installing it, run on your terminal "node-red" and open the link http://127.0.0.1:1880/.
-* To open Grafana , after installing it, run on your terminal "sudo systemctl start grafana-server" and open http://localhost:3000/.
-* Slack channel for alert messages: https://join.slack.com/t/smarthomeapplication/shared_invite/zt-14gi1xq83-nAKqM6GHoSK8J4joeC5u0Q
-* In the file mqtt there are some examples of MQTT Requests you can send. 
-* To run data scripts, first run on your terminal `pip install paho-mqtt`. In order to run all scripts simultaneously, in the terminal, the folder data_scripts:
+1. To open Node-Red, after installing it, run on your terminal "node-red" and open the link http://127.0.0.1:1880/.
+2. Import the file flows.json.
+3. Navigate in Manage Palette and install the packages: node-red-contrib-loop-processing, node-red-contrib-postgresql and node-red-contrib-slack-files
+4. In the postgresql insert nodes, you should configure the database yoy created.
+5. Enter Deploy.
+
+### MQTT (sensors)
+* In the file mqtt there are some examples of MQTT Requests you can send.
+* In order to simulate a real situation with simultaneous mqtt requests from sensors you can run the script `./test_scripts.sh` as explained bellow.
+* To run data scripts, first run on your terminal in the folder data_scripts `pip install paho-mqtt`. In order to run all scripts simultaneously, in the terminal:
   1. run `chmod +x test_scripts.sh`
   2. run `./test_scripts.sh`
+ Data will be sent every five minutes for 30 minutes.
+ ### Grafana
  * To control devices open Grafana and run the provided API.
  * To run the API inside the folder smarthome_api: 
     1. `npm install`
     2. `nodemon start`
+ * To open Grafana , after installing it, run on your terminal "sudo systemctl start grafana-server" and open http://localhost:3000/.
+ *  * To control devices open Grafana and run the provided API.
+ * To run the API inside the folder smarthome_api: 
+    1. `npm install`
+    2. `nodemon start`
+* Slack channel for alert messages: https://join.slack.com/t/smarthomeapplication/shared_invite/zt-14gi1xq83-nAKqM6GHoSK8J4joeC5u0Q
+
