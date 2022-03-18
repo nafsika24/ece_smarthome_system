@@ -45,6 +45,7 @@ As we do not have real sensors, we will simulate them by using python scripts. I
     1. `npm install`
     2. `nodemon start`
  * To open Grafana , after installing it, run on your terminal "sudo systemctl start grafana-server" and open http://localhost:3000/.
+ ### API
  *  * To control devices open Grafana and run the provided API.
  * To run the API inside the folder smarthome_api: 
     1. `npm install`
