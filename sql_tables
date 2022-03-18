@@ -1,0 +1,79 @@
+CREATE TABLE alarm (
+    id integer NOT NULL,
+    time timestamp,
+    isopen integer
+);
+
+
+CREATE TABLE devices (
+    id integer NOT NULL,
+    time timestamp,
+    state integer,
+    device character varying
+);
+
+CREATE TABLE public.door (
+    id integer NOT NULL,
+    state integer NOT NULL,
+    time timestamp,
+    room character varying
+);
+
+CREATE TABLE doorbell (
+    id integer NOT NULL,
+    state integer,
+    "time" timestamp without time zone
+);
+
+CREATE TABLE energy (
+    id integer NOT NULL,
+    time timestamp,
+    energy_type character varying,
+    capacity real,
+    temperature real,
+    consumption real
+);
+
+CREATE TABLE fridgedoor (
+    id integer NOT NULL,
+    state integer NOT NULL,
+    time timestamp,
+);
+
+CREATE TABLE gases (
+    id integer NOT NULL,
+    room character varying,
+    time timestamp,
+    value real,
+    gas_type character varying
+);
+
+CREATE TABLE lights (
+    id integer NOT NULL,
+    room character varying,
+    time timestamp,
+    state integer
+);
+
+CREATE TABLE present (
+    id integer NOT NULL,
+    time timestamp,
+    state integer,
+    room character varying
+);
+
+CREATE TABLE thermostat (
+    id integer NOT NULL,
+    temperature real,
+    state integer,
+    time timestamp,
+);
+
+
+CREATE TABLE windows (
+    id integer NOT NULL,
+    time timestamp,
+    room character varying,
+    isopen integer
+);
+
