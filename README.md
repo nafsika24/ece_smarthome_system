@@ -18,7 +18,7 @@ THe file flows.json contains all the flows of the system. By uploading it at Nod
 
 For the visualisation of all the states we used the tool [Grafana](https://grafana.com/). You can import the files from the Folder Grafana Dashboards and see a demo of visualisations and the control of the devices.
 
-For the control of the devices (e.x. lights) you will use Grafana's Dashboard, where there are several buttons for that purpose. As Grafana can not send MQTT requests when a button is clicked, we developed a simple API, which listens at user's controls and sends MQTT requests.
+For the control of the devices (e.x. lights) you will use Grafana's Dashboard, where there are several buttons for that purpose. As Grafana can not send MQTT requests when a button is clicked, we developed a simple Nodejs API, which listens at user's controls and sends MQTT requests.
 
 As we do not have real sensors, we will simulate them by using python scripts. In the folder data_scripts you will find the test_script.sh. By running it all the contained scripts begin simultaneously to send MQTT requests every five minutes, with hypothetical timestamp data from the house's sensors.  
 
