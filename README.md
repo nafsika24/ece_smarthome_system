@@ -23,6 +23,7 @@ For the control of the devices (e.x. lights) you will use Grafana's Dashboard, w
 As we do not have real sensors, we will simulate them by using python scripts. In the folder data_scripts you will find the test_script.sh. By running it all the contained scripts begin simultaneously to send MQTT requests every five minutes, with hypothetical timestamp data from the house's sensors.  
 
 ### Build note 
+### Node Red
 * To open Node-Red, after installing it, run on your terminal "node-red" and open the link http://127.0.0.1:1880/.
 * To open Grafana , after installing it, run on your terminal "sudo systemctl start grafana-server" and open http://localhost:3000/.
 * Slack channel for alert messages: https://join.slack.com/t/smarthomeapplication/shared_invite/zt-14gi1xq83-nAKqM6GHoSK8J4joeC5u0Q
