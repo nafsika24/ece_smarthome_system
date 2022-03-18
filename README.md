@@ -50,5 +50,6 @@ As we do not have real sensors, we will simulate them by using python scripts. I
  * To run the API inside the folder smarthome_api: 
     1. `npm install`
     2. `nodemon start`
+  ### Slack
 * Slack channel for alert messages: https://join.slack.com/t/smarthomeapplication/shared_invite/zt-14gi1xq83-nAKqM6GHoSK8J4joeC5u0Q
 
