@@ -16,7 +16,7 @@ We assume that the messages we retrieve (for the several states of the house) ar
 
 THe file flows.json contains all the flows of the system. By uploading it at Node-Red you can see them. The flows contain connection to PostgreSQL Database and Mosquitto MQTT Brocker.
 
-For the visualisation of all the states we used the tool [Grafana](https://grafana.com/). You can import the file FILEEEEE and see a demo of visualisations and the control of the devices.
+For the visualisation of all the states we used the tool [Grafana](https://grafana.com/). You can import the files from the Folder Grafana Dashboards and see a demo of visualisations and the control of the devices.
 
 For the control of the devices (e.x. lights) you will use Grafana's Dashboard, where there are several buttons for that purpose. As Grafana can not send MQTT requests when a button is clicked, we developed a simple API, which listens at user's controls and sends MQTT requests.
 
@@ -30,3 +30,7 @@ As we do not have real sensors, we will simulate them by using python scripts. I
 * To run data scripts, first run on your terminal `pip install paho-mqtt`. In order to run all scripts simultaneously, in the terminal, the folder data_scripts:
   1. run `chmod +x test_scripts.sh`
   2. run `./test_scripts.sh`
+ * To control devices open Grafana and run the provided API.
+ * To run the API inside the folder smarthome_api: 
+    1. `npm install`
+    2. `nodemon start`
