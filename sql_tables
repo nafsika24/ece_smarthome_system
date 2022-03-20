@@ -9,26 +9,26 @@ CREATE TABLE devices (
     id integer NOT NULL,
     time timestamp,
     state integer,
-    device character varying
+    device varchar
 );
 
 CREATE TABLE public.door (
     id integer NOT NULL,
     state integer NOT NULL,
     time timestamp,
-    room character varying
+    room varchar 
 );
 
 CREATE TABLE doorbell (
     id integer NOT NULL,
     state integer,
-    "time" timestamp without time zone
+    "time" timestamp 
 );
 
 CREATE TABLE energy (
     id integer NOT NULL,
     time timestamp,
-    energy_type character varying,
+    energy_type varchar ,
     capacity real,
     temperature real,
     consumption real
@@ -42,15 +42,15 @@ CREATE TABLE fridgedoor (
 
 CREATE TABLE gases (
     id integer NOT NULL,
-    room character varying,
+    room varchar,
     time timestamp,
     value real,
-    gas_type character varying
+    gas_type varchar
 );
 
 CREATE TABLE lights (
     id integer NOT NULL,
-    room character varying,
+    room varchar,
     time timestamp,
     state integer
 );
@@ -59,7 +59,7 @@ CREATE TABLE present (
     id integer NOT NULL,
     time timestamp,
     state integer,
-    room character varying
+    room varchar
 );
 
 CREATE TABLE thermostat (
@@ -73,7 +73,7 @@ CREATE TABLE thermostat (
 CREATE TABLE windows (
     id integer NOT NULL,
     time timestamp,
-    room character varying,
+    room varchar,
     isopen integer
 );
 
