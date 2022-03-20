@@ -24,13 +24,17 @@ As we do not have real sensors, we will simulate them by using python scripts. I
 
 ### Build note 
 ### Database
-1. After downloading and setting up PostgreSQL, create a batabase with the tables that are in the file sql_tables.
+1. After downloading and setting up PostgreSQL, create a database with the tables that are in the file sql_tables.
 ### Node Red
 1. To open Node-Red, after installing it, run on your terminal "node-red" and open the link http://127.0.0.1:1880/.
 2. Import the file flows.json.
 3. Navigate in Manage Palette and install the packages: node-red-contrib-loop-processing, node-red-contrib-postgresql and node-red-contrib-slack-files
-4. In the postgresql insert nodes, you should configure the database you created.
-5. Enter Deploy.
+4. In the postgresql insert nodes, you should configure the database you created following the bellow steps:
+    i. edit postgresql node
+    ii. edit postgresql Config node
+    iii. fill the connection and security fiels (no SSL needed)
+
+6. Enter Deploy.
 
 ### MQTT (sensors)
 * In the file mqtt there are some examples of MQTT Requests you can send.
@@ -40,10 +44,12 @@ As we do not have real sensors, we will simulate them by using python scripts. I
   2. run `./test_scripts.sh`
  Data will be sent every five minutes for 30 minutes.
  ### Grafana
- * To open Grafana, after installing it, run on your terminal "sudo systemctl start grafana-server" and open http://localhost:3000/.
- * Import the files from the folder Grafana Dashboards.
- * You can see now the timestamp graphs.
- * You can control the devices provided from the buttons, but first you should run the provided API (folder smarthome_api).
+ 1. To open Grafana, after installing it, run on your terminal "sudo systemctl start grafana-server" and open http://localhost:3000/.
+ 2. Navigate at Configuration -> Data Sources -> Add Data Source -> Choose PostgreSQL and connect the database you created.
+ 3. Import the files from the folder Grafana Dashboards.
+ 4. Now you will be able to see the timestamp graphs. 
+ 5. In order to use the buttons you should install the plugins Text and Button Panel and set at the file grafana.ini: disable_sanitize_html = true
+ 6. Run the provided API as described bellow.
  ### API
  * To run the API, inside the folder smarthome_api: 
     1. `npm install`
